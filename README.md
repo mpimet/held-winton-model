@@ -5,6 +5,7 @@ Historical ERF comes from Forster et al. (2025; https://essd.copernicus.org/arti
 
 Example code to read in dF, dT and dN
 
+```
 start_yr=2001
 end_yr=2024
 
@@ -41,3 +42,4 @@ dN=dN[i[0][0]:j[0][0]+1]
 dLW=dLW[i[0][0]:j[0][0]+1]
 dSW=dSW[i[0][0]:j[0][0]+1]
 yr=yr[i[0][0]:j[0][0]+1]
+```
