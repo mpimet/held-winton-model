@@ -24,6 +24,7 @@ y0 = [0.0, 0.0]  # Initial temperature anomalies (K)
 F2x = two_layer.F_CO2(2 * 280)  # 2xCO2 forcing
 t2x = 70 * sec_per_year
 dFdt = 0.0 * F2x / t2x  # Radiative forcing (e.g., 2xCO2 step change)
+
 F_0 = F2x
 A = 0.0  # aerosol forcing
 
@@ -48,9 +49,8 @@ ds = two_layer.run_two_layer_model(
     lam_sw=lam_sw,
     kappa=kappa,
     lam0=lam0,
-    dFdt=dFdt,
-    F_0=F_0,
-    A=A,
+    F_lw=lambda t: two_layer.get_co2_forcing(t, F_abrupt=F2x, dFdt=dFdt),
+    F_sw=lambda t: two_layer.F_aerosol(t, A=A),
 )
 
 # %%
